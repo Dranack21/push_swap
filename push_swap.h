@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/17 19:52:10 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:07:30 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ typedef struct t_double_list
 	struct t_double_list	*next;
 }	t_double_list;
 
-int	parsing(char *pile);
-
-void	ft_lstadd_back(t_list **head, int value);
-
-t_double_list	*create_node(int value);
+t_double_list *create_node(int value);
+void append_node(t_double_list **head, int value);
+void print_list(t_double_list *head);
+int parsing(char *arg);
+void	ft_lstadd_end(t_double_list **head, int value);
+void ft_add_in_list(t_double_list **a, char *argv);
+void ft_add_in_list_2(t_double_list **a, char *argv);
+void print_list(t_double_list *head);
 
 #endif

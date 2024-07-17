@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:25:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/17 20:36:36 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:09:42 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	int	i;
-	t_double_list **a;
+	t_double_list **a = NULL;
 	
 	i = 1;
 	if (argc < 2) 
@@ -26,12 +26,15 @@ int	main(int argc, char *argv[])
 				return (0);
 	}
 	i = 1;
-	if (argv = 2)
-		ft_add_in_list(a, argv);
-		
-	if (argv > 2)
+	if (argc == 2)
+		ft_add_in_list(a, *argv);
+	if (argc > 2)
 	{
-		while (argv[i++])
+		while (argv[i])
+		{
 			ft_add_in_list_2(a, argv[i]);
+			i++;
+		}
 	}
+	print_list(*a);
 }

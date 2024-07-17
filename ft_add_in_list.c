@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:55:43 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/17 20:42:54 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:06:21 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ void	ft_add_in_list(t_double_list **head, char *argv)
 	{
 		if (ft_isdigit(argv[i]))
 		{
-			value = ft_atoi(argv[i]) + value * 10 ;
+			value = ft_atoi(&argv[i]) + value * 10 ;
 			i++;
 		}
 		else 
+		{
 			value = 0;
 			ft_lstadd_end(head, value);
 			i++;
+		}
 	}
-		ft_lstadd_end(head, argv);
+		ft_lstadd_end(head, ft_atoi(argv));
 }

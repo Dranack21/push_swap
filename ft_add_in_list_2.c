@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:20:33 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/17 20:36:26 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:05:04 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_add_in_list_2(t_double_list **head, char *argv)
 {
-	ft_lstadd_end(head, argv);
+	ft_lstadd_end(head, ft_atoi(argv));
 }
