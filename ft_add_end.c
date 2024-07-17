@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_in_list.c                                   :+:      :+:    :+:   */
+/*   ft_add_end.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 19:55:43 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/17 20:42:54 by habouda          ###   ########.fr       */
+/*   Created: 2024/07/17 19:51:04 by habouda           #+#    #+#             */
+/*   Updated: 2024/07/17 20:01:32 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_add_in_list(t_double_list **head, char *argv)
+void	ft_lstadd_end(t_list **head, int value)
 {
-	int value;
-	int	i;
-
-	i = 0;
-	value = 0;
-	while (argv[i])
+	t_double_list *new_node = create_node(value);
+	if (!new_node)
+		return (NULL);
+	if (*head == NULL)
 	{
-		if (ft_isdigit(argv[i]))
-		{
-			value = ft_atoi(argv[i]) + value * 10 ;
-			i++;
-		}
-		else 
-			value = 0;
-			ft_lstadd_end(head, value);
-			i++;
+		*head = new_node;
+		return ;
 	}
-		ft_lstadd_end(head, argv);
+	else
+	{
+		t_double_list *temp = *head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = new_node;
+        new_node->previous = temp;
+	}
 }
