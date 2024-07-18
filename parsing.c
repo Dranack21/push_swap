@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:50:10 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/17 18:30:05 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/18 17:19:43 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@ int	parsing(char *pile)
 	{
 		if (ft_isdigit(pile[i]))
 			i++;
-		else if(pile[i] == '-' || pile[i] == ' ' || pile[i] == '+')
+		else if(pile[i] == '-' || pile[i] == '+')
 		{
 				if (pile[i + 1] && ft_isdigit(pile[i + 1]))
+					i++;
+				else 
+					return (0);
+		}
+		else if (pile[i] == ' ')
+		{
+			if (pile[i + 1] && (pile[i + 1] == '-' || pile[i + 1 == '+']))
 					i++;
 				else 
 					return (0);
