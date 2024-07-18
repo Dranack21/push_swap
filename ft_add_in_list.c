@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:55:43 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/18 17:14:12 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:13:37 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_add_in_list(t_double_list **head, char *argv)
 {
-	int value;
+	int	value;
 	int	i;
-	int sign;
+	int	sign;
 
 	i = 0;
 	value = 0;
@@ -28,10 +28,10 @@ void	ft_add_in_list(t_double_list **head, char *argv)
 		if (argv[i] == '+' || argv[i] == '-')
 		{
 			if (argv[i] == '-')
-				sign = - sign;
+				sign = -sign;
 			i++;
 		}
-		while(ft_isdigit(argv[i]))
+		while (ft_isdigit(argv[i]))
 		{
 			value = value_change(argv[i], value);
 			i++;
