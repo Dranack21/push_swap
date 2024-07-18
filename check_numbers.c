@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 17:25:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/18 18:35:31 by habouda          ###   ########.fr       */
+/*   Created: 2024/07/18 17:31:03 by habouda           #+#    #+#             */
+/*   Updated: 2024/07/18 18:34:39 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	check_numbers(int argc, char **argv)
 {
 	int	i;
-	t_double_list *head = NULL;
-	
+	int	k;
+
 	i = 1;
-	if (argc < 2) 
-		return (0);
-	while (argv[i])
-	{ 
-		if (!parsing(argv[i++]) || !check_numbers(argc, argv))
-				return (0);
-	}
-	i = 1;
-	if (argc == 2)
-		ft_add_in_list(&head, argv[1]);
-	if (argc > 2)
+	while (argv[i] && argv[i + 1])
 	{
-		while (argv[i])
+		k = i + 1;
+		while (k < argc)
 		{
-			ft_add_in_list_2(&head, argv[i]);
-			i++;
+			if (ft_atoi(argv[i]) ==ft_atoi(argv[k]))
+				return (0);
+			k++;
 		}
+		i++;
 	}
-	print_list(head);
+	return (1);
 }
