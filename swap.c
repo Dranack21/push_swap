@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 17:25:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/25 18:49:15 by habouda          ###   ########.fr       */
+/*   Created: 2024/07/25 18:32:06 by habouda           #+#    #+#             */
+/*   Updated: 2024/07/25 19:17:53 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void 	swap(t_double_list *head, int i)
 {
-	t_double_list	*head;
+	int				temp;
+	t_double_list	*next;
+	
+	if (head)
+		next = head->next;
+	if (head != NULL)
+	{
+		temp = head->value;
+		head->value = next->value;
+		next->value = temp;
+		if (i == 0)
+		{
+			ft_printf("sa\n");
+		}
+		else
+			ft_printf("sb\n");
+	}
+}
 
-	head = assemble_in_list(argc, argv);
-	swap(head, 1);
-	print_list(head);
+void	push(t_double_list *a, t_double_list *b, int i)
+{
+	
 }
