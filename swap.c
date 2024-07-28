@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:32:06 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 18:25:25 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 19:04:33 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,24 @@ void	push(t_double_list **l1, t_double_list **l2, char c)
 		if (c == 'b')
 			ft_printf("pb");
 	}
+}
+
+void	rotate(t_double_list **head)
+{
+	t_double_list	*temp;
+	t_double_list	*new_head;
+
+	if (*head == NULL || !(*head)->next)
+		return ;
+	temp = *head;
+	new_head = (*head)->next;
+	while ((*head)->next)
+	{
+		*head = (*head)->next;
+	}
+	(*head)->next = temp;
+	temp->previous = *head;
+	temp->next = NULL;
+	new_head->previous = NULL;
+	*head = new_head;
 }

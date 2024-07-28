@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 18:08:49 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 18:47:31 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void			print_list(t_double_list *head);
 void			swap(t_double_list *head, char c);
 void			push(t_double_list **l1, t_double_list **l2, char c);
 void			ft_free_list(t_double_list **lst);
+void			rotate(t_double_list **head);
 
 int				value_change(char c, int value);
 int				check_numbers(char **argv);
