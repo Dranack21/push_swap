@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 17:39:06 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 18:08:49 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void			append_node(t_double_list **head, int value);
 void			print_list(t_double_list *head);
 void			ft_lstadd_end(t_double_list **head, int value);
 void			ft_add_in_list(t_double_list **a, char *argv);
-void			ft_add_in_list_2(t_double_list **a, char *argv);
 void			print_list(t_double_list *head);
 void			swap(t_double_list *head, char c);
 void			push(t_double_list **l1, t_double_list **l2, char c);

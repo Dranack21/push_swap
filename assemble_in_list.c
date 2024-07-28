@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 20:45:58 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/18 21:07:22 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 18:09:04 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_double_list	*assemble_in_list(int argc, char *argv[])
 		i = 0;
 	while (argv[i])
 	{
-		ft_add_in_list_2(&head, argv[i]);
+		ft_add_in_list(&head, argv[i]);
 		i++;
 	}
 	return (head);

@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:32:06 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 18:04:17 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 18:25:25 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ void	swap(t_double_list *head, char c)
 	int				temp;
 	t_double_list	*next;
 
-	if (head)
-		next = head->next;
+	if (!head || !head->next)
+		return ;
+	next = head->next;
 	if (head != NULL)
 	{
 		temp = head->value;
