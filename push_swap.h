@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 19:06:30 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 19:44:17 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct t_double_list
 {
-	int						value;
+	int					value;
 	struct t_double_list	*previous;
 	struct t_double_list	*next;
 }	t_double_list;
@@ -34,6 +34,7 @@ void			ft_free_list(t_double_list **lst);
 void			swap(t_double_list *head, char c);
 void			push(t_double_list **l1, t_double_list **l2, char c);
 void			rotate(t_double_list **head, char c);
+void			reverse_rotate(t_double_list **head, char c);
 
 int				value_change(char c, int value);
 int				check_numbers(char **argv);

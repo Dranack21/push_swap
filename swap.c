@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:32:06 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 19:07:37 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 20:08:23 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	swap(t_double_list *head, char c)
 		head->value = next->value;
 		next->value = temp;
 		if (c == 'a')
-		{
 			ft_printf("sa\n");
-		}
-		else
+		if (c == 'b')
 			ft_printf("sb\n");
+		if (c == 'c')
+			ft_printf("ss\n");
 	}
 }
 
@@ -52,9 +52,9 @@ void	push(t_double_list **l1, t_double_list **l2, char c)
 		*l2 = (*l2)->next;
 		free(temp);
 		if (c == 'a')
-			ft_printf("pa");
+			ft_printf("pa\n");
 		if (c == 'b')
-			ft_printf("pb");
+			ft_printf("pb\n");
 	}
 }
 
@@ -77,7 +77,31 @@ void	rotate(t_double_list **head, char c)
 	new_head->previous = NULL;
 	*head = new_head;
 	if (c == 'a')
-		ft_printf("ra");
+		ft_printf("ra\n");
 	if (c == 'b')
-		ft_printf("rb");
+		ft_printf("rb\n");
+	if (c == 'c')
+		ft_printf("rr\n");
+}
+
+void	reverse_rotate(t_double_list **head, char c)
+{
+	t_double_list	*temp;
+	int				i;
+
+	if (*head == NULL || !(*head)->next)
+		return ;
+	temp = *head;
+	i = 0;
+	while((*head)->next)
+	{
+		*head = (*head)->next;
+		i++;
+	}
+	while (i > 0)
+	{
+		rotate(&temp, 'd');
+		i--;
+	}
+	c = c + 1;
 }

@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:25:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 19:06:41 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 20:10:34 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,23 @@ int	main(int argc, char *argv[])
 {
 	t_double_list	*head;
 	t_double_list	*no;
+	int				i;
 
-	no = NULL;
+	i = 0;
 	head = assemble_in_list(argc, argv);
-	rotate(&head, 'a');
+	no = assemble_in_list(argc, argv);
+	ft_free_list(&no);
+	push(&no, &head, 'b');
+	push(&no, &head, 'b');
+	push(&no, &head, 'b');
+	print_list(no);
+	print_list(head);
+	reverse_rotate(&no, 'b');
+	print_list(no);
+	swap(no, 'b');
 	print_list(no);
 	print_list(head);
 	ft_free_list(&head);
 	ft_free_list(&no);
 }
+
