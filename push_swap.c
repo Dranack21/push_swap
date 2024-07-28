@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:25:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 18:48:17 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 19:06:41 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 
 	no = NULL;
 	head = assemble_in_list(argc, argv);
-	rotate(&head);
+	rotate(&head, 'a');
 	print_list(no);
 	print_list(head);
 	ft_free_list(&head);
