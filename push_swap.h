@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 19:44:17 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 20:13:59 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct t_double_list
 {
-	int					value;
+	int						value;
 	struct t_double_list	*previous;
 	struct t_double_list	*next;
 }	t_double_list;

@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:32:06 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 20:08:23 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 20:13:41 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	reverse_rotate(t_double_list **head, char c)
 		return ;
 	temp = *head;
 	i = 0;
-	while((*head)->next)
+	while ((*head)->next)
 	{
 		*head = (*head)->next;
 		i++;
