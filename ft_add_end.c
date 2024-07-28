@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:51:04 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/18 21:13:06 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/28 17:41:39 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstadd_end(t_double_list **head, int value)
 	t_double_list	*temp;
 
 	new_node = create_node(value);
-	if (!head)
+	if (!head || !new_node)
 		return ;
 	if (*head == NULL)
 	{
