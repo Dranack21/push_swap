@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:32:06 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/28 20:13:41 by habouda          ###   ########.fr       */
+/*   Updated: 2024/07/31 20:17:00 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,10 @@ void	reverse_rotate(t_double_list **head, char c)
 		rotate(&temp, 'd');
 		i--;
 	}
-	c = c + 1;
+	if (c == 'a')
+		ft_printf("rra\n");
+	if (c == 'b')
+		ft_printf("rrb\n");
+	if (c == 'c')
+		ft_printf("rrr\n");
 }
