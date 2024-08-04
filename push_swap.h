@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/31 20:36:00 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/04 19:55:45 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include "libft/libft.h"
+# include <limits.h>
 
 typedef struct t_double_list
 {
@@ -25,6 +26,7 @@ typedef struct t_double_list
 
 t_double_list	*create_node(int value);
 t_double_list	*assemble_in_list(int argc, char *argv[]);
+t_double_list	*simulate_push(t_double_list *b_head, int value);
 
 void			append_node(t_double_list **head, int value);
 void			print_list(t_double_list *head);
@@ -36,9 +38,13 @@ void			push(t_double_list **l1, t_double_list **l2, char c);
 void			rotate(t_double_list **head, char c);
 void			reverse_rotate(t_double_list **head, char c);
 void			sort_three_stack(t_double_list **head);
+void			find_best_push(t_double_list **a_head, t_double_list **b_head);
+void			alloc_temp_list(t_double_list **b, t_double_list **c);
 
 int				value_change(char c, int value);
 int				check_numbers(char **argv);
 int				parsing(char *arg);
+int				sort_three_stack_reverse(t_double_list **head);
+int				calculate_total_steps(t_double_list **b, t_double_list *a_node);
 
 #endif

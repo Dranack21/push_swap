@@ -3,6 +3,8 @@
 
 void print_list(t_double_list *head)
 {
+    if (head == NULL)
+        return ;
     t_double_list *temp = head;
     while (temp != NULL)
     {

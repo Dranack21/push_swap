@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:25:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/07/31 20:36:18 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/04 20:11:27 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ int	main(int argc, char *argv[])
 	t_double_list	*no;
 
 	head = assemble_in_list(argc, argv);
-	no = assemble_in_list(argc, argv);
-	ft_free_list(&no);
-	sort_three_stack(&head);
+	no = NULL;
+	push(&no, &head, 'b');
+	push(&no, &head, 'b');
+	find_best_push(&head, &no);
 	print_list(head);
 	print_list(no);
 	ft_free_list(&head);
