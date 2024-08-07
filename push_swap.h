@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:55:03 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/04 19:55:45 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/07 21:22:05 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void			rotate(t_double_list **head, char c);
 void			reverse_rotate(t_double_list **head, char c);
 void			sort_three_stack(t_double_list **head);
 void			find_best_push(t_double_list **a_head, t_double_list **b_head);
-void			alloc_temp_list(t_double_list **b, t_double_list **c);
+void			alloc_temp_list(t_double_list *src, t_double_list **dst);
 
 int				value_change(char c, int value);
 int				check_numbers(char **argv);
 int				parsing(char *arg);
-int				sort_three_stack_reverse(t_double_list **head);
+int				sort_three_stack_reverse(t_double_list **head, char c);
 int				calculate_total_steps(t_double_list **b, t_double_list *a_node);
 
 #endif
