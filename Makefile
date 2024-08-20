@@ -6,29 +6,25 @@
 #    By: habouda <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/28 01:37:02 by Habouda           #+#    #+#              #
-#    Updated: 2024/07/03 19:38:36 by habouda          ###   ########.fr        #
+#    Updated: 2024/08/20 13:58:02 by habouda          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPIL #####################################################################
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 NAME 	= push_swap
 
 ### SRC ########################################################################
 
 SRCS	=	assemble_in_list.c \
-			check_numbers.c \
-			ft_add_end.c \
-			ft_add_in_list.c \
-			ft_create_node.c \
-			parsing.c \
-			print_list.c \
+			calculate_steps.c \
+			commands.c \
+			list_utils.c \
+			list_utils2.c \
 			push_swap.c \
-			sort_main_stack.c \
-			sort_stack_three.c \
-			swap.c 
+			sort_b_stack.c \
 
 ### OBJS ###########################################################################
 			

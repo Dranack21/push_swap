@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:16:01 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 13:37:35 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/20 15:57:24 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,33 +34,49 @@ t_double_list	*find_biggest_node(t_double_list **lst)
 	return (biggest_node);
 }
 
-int	sort_for_middle(t_double_list **lst, t_double_list *node, char c)
+int sort_for_middle(t_double_list **lst, t_double_list *node, char c)
 {
-	int				steps;
-	int				size;
-	int				i;
-	t_double_list	*head;
+    int steps = 0;
+    int size;
+    int i = 0;
 
-	head = *lst;
-	i = 0;
-	steps = 0;
-	size = ft_listsize(*lst);
-	while (head->value > node->value)
-		i++;
-	if (size / 2 > i)
-	{
-		while ((*lst)->value > node->value && steps++ > -1)
-			rotate(lst, c);
-	}
-	else if (size / 2 <= i)
-	{
-		while ((*lst)->value > node->value && steps++ > -1)
-			reverse_rotate(lst, c);
-	}
-	return (steps);
+    t_double_list *head = *lst;
+    size = ft_listsize(*lst);
+    printf("Sorting for middle, list size: %d, node value: %d\n", size, node->value);
+    while (head->value > node->value)
+    {
+        i++;
+        head = head->next;
+    }
+    printf("i: %d\n", i);
+
+    if (size / 2 >= i)
+    {
+        while (i-- > 0)
+        {
+            printf("before I rotate\n");
+            rotate(lst, c);
+            steps++;
+        }
+    }
+    else if (size / 2 < i)
+    {
+        while (size - i != 0)
+        {
+			size --;
+			printf("priout");
+            reverse_rotate(lst, c);
+            steps++;
+        }
+    }
+    printf("Steps taken: %d\n", steps);
+
+    return steps;
 }
 
-int	sort_for_extremes(t_double_list **lst, t_double_list *node, char c)
+
+
+int	sort_for_extremes(t_double_list **lst, char c)
 {
 	int				steps;
 	int				size;

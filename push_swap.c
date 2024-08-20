@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:21:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 13:18:47 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/20 16:03:43 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	main(int argc, char *argv[])
 	// size = ft_listsize(head);
 	while (ft_listsize(head) > 0)
 		find_best_push(&head, &no);
+	while(no->value != find_biggest_node(&no)->value)
+	{
+		rotate(&no, 'b');
+	}
 	while(ft_listsize(no) > 0)
 		push(&head, &no, 'a');
 	print_list(head);
