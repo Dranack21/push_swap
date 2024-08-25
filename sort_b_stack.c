@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 16:00:00 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/25 19:30:01 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,25 @@ int		calculate_steps(t_double_list **b, t_double_list *node)
 	size = check_biggest_or_smallest(&simulated_b, node);
 	if (size == 1 || size == 2)
 	{
+		print_list(*b);
 		printf("before sort extremes\n");
 		steps = sort_for_extremes(&simulated_b, 'd');
 		printf("after sort extremes\n");
 	}
 	else if (size == 3)
 	{
-		printf("before sort middle\n");
-		steps = sort_for_middle(&simulated_b, node, 'd');
-		printf("after sort middle\n");
+		if (simulated_b->value > node->value)
+		{
+			printf("before sort middle_smaller\n");
+			steps = sort_for_middle_smaller(&simulated_b, node, 'd');
+			printf("after sort middle_smaller\n");
+		}
+		else if (simulated_b->value < node->value)
+		{
+			printf("before sort middle_bigger\n");
+			steps = sort_for_middle_bigger(&simulated_b, node, 'd');
+			printf("after sort middle_bigger\n");
+		}
 	}
 	print_list(simulated_b);
 	ft_free_list(&simulated_b);
@@ -119,13 +129,27 @@ void	find_best_push(t_double_list **a, t_double_list **b)
 	size = check_biggest_or_smallest(b, best_node);
 	if (size == 3)
 	{
-		printf("before REAL sort middle\n");
-		print_list(*a);
-		print_list(*b);
-		sort_for_middle(b, best_node, 'a');
-		printf("after REAL sort middle\n");
-		print_list(*a);
-		print_list(*b);
+		if ((*b)->value > best_node->value)
+		{
+			printf("before REAL sort middle_smaller\n");
+			print_list(*a);
+			print_list(*b);
+			sort_for_middle_smaller(b, best_node, 'a');
+			printf("after REAL sort middle_smaller\n");
+			print_list(*a);
+			print_list(*b);
+		}
+		else if ((*b)->value < best_node->value)
+		{
+			printf("before REAL sort middle_bigger\n");
+			print_list(*a);
+			print_list(*b);
+			sort_for_middle_bigger(b, best_node, 'a');
+			printf("after REAL sort middle_bigger\n");
+			print_list(*a);
+			print_list(*b);
+		}
+		
 	}
 	else if (size == 1 || size == 2)
 	{

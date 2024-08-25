@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 13:56:31 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/25 19:39:57 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ int		parsing(char *pile);
 int		ft_listsize(t_double_list *lst);
 
 int		sort_for_extremes(t_double_list **lst, char c);
-int		sort_for_middle(t_double_list **lst, t_double_list *node, char c);
+int		sort_for_middle_bigger(t_double_list **lst, t_double_list *node, char c);
+int 	sort_for_middle_smaller(t_double_list **lst, t_double_list *node, char c);
 int		check_biggest_or_smallest(t_double_list **lst, t_double_list *node);
 int		rotate_or_rev(t_double_list **a, t_double_list *a_node);
 int		calculate_steps(t_double_list **b, t_double_list *node);
+int		sort_three_stack_reverse(t_double_list **head, char c);
 
 void	find_best_push(t_double_list **a, t_double_list **b);
 void	push(t_double_list **l1, t_double_list **l2, char c);

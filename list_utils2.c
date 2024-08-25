@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:18:29 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 13:18:56 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/25 19:38:52 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,31 @@ void	ft_free_double_list(t_double_list **lst)
 		ptr = temp;
 	}
 	*lst = NULL;
+}
+int	sort_three_stack_reverse(t_double_list **head, char c)
+{
+	t_double_list	*second;
+	t_double_list	*third;
+
+	if (*head == NULL)
+		return (0);
+	second = (*head)->next;
+	third = second->next;
+	if ((*head)->value > second->value && second->value > third->value)
+		return (0);
+	if ((*head)->value > second->value && second->value < third->value)
+	{
+		if ((*head)->value > third->value)
+			return (swap(*head, c), reverse_rotate(head, c), 2);
+		if ((*head)->value < third->value)
+			return (reverse_rotate(head, c), 1);
+	}
+	if ((*head)->value < second->value && second->value > third->value)
+	{
+		if ((*head)->value > third->value)
+			return (swap(*head, c), 1);
+		if ((*head)->value < third->value)
+			return (rotate(head, c), 1);
+	}
+	return (swap(*head, c), reverse_rotate(head, c), 2);
 }
