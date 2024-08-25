@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:16:01 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/25 20:08:31 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/25 20:16:01 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,15 @@ int sort_for_middle_smaller(t_double_list **lst, t_double_list *node, char c)
 
     t_double_list *head = *lst;
     size = ft_listsize(*lst);
-    printf("Sorting for middle smaller , list size: %d, node value: %d\n", size, node->value);
     while (head->value > node->value)
     {
         i++;
         head = head->next;
     }
-    printf("i: %d\n", i);
-
     if (size / 2 >= i)
     {
         while (i-- > 0)
         {
-            printf("before I rotate\n");
             rotate(lst, c);
             steps++;
         }
@@ -67,7 +63,6 @@ int sort_for_middle_smaller(t_double_list **lst, t_double_list *node, char c)
             steps++;
         }
     }
-    printf("Steps taken: %d\n", steps);
     return (steps);
 }
 
@@ -80,19 +75,15 @@ int sort_for_middle_bigger(t_double_list **lst, t_double_list *node, char c)
 	steps = sort_for_extremes(lst, c);
     t_double_list *head = *lst;
     size = ft_listsize(*lst);
-    printf("Sorting for middle  , list size: %d, node value: %d\n", size, node->value);
     while (head->value > node->value)
     {
         i++;
         head = head->next;
     }
-    printf("i: %d\n", i);
-
     if (size / 2 >= i)
     {
         while (i-- > 0)
         {
-            printf("before I rotate\n");
             rotate(lst, c);
             steps++;
         }
@@ -106,7 +97,6 @@ int sort_for_middle_bigger(t_double_list **lst, t_double_list *node, char c)
             steps++;
         }
     }
-    printf("Steps taken: %d\n", steps);
     return (steps);
 }
 
@@ -127,7 +117,6 @@ int	sort_for_extremes(t_double_list **lst, char c)
 	{
 		head = head->next;
 		i++;
-		printf("valeur de i : %d\n", i);
 	}
 	if (size / 2 > i)
 	{
