@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/25 19:39:57 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/26 18:16:13 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct t_double_list
 
 t_double_list	*assemble_in_list(int argc, char *argv[]);
 t_double_list	*find_biggest_node(t_double_list **lst);
+t_double_list   *find_smaller_than_node(t_double_list **lst, t_double_list *node);
 
 int		check_numbers(char **argv);
 int		parsing(char *pile);

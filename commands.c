@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:57 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 12:40:25 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/26 17:33:13 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void reverse_rotate(t_double_list **head, char c)
     temp->next = *head;
     (*head)->previous = temp;
     *head = temp;
-
     if (c == 'a')
         ft_printf("rra\n");
     else if (c == 'b')

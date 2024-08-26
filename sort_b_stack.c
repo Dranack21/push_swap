@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/25 20:14:44 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/26 17:51:00 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,17 +121,16 @@ void	find_best_push(t_double_list **a, t_double_list **b)
 	{
 		if ((*b)->value > best_node->value)
 		{
-			sort_for_middle_smaller(b, best_node, 'a');
+			sort_for_middle_smaller(b, best_node, 'b');
 		}
 		else if ((*b)->value < best_node->value)
 		{
-			sort_for_middle_bigger(b, best_node, 'a');
+			sort_for_middle_bigger(b, best_node, 'b');
 		}
-		
 	}
 	else if (size == 1 || size == 2)
 	{
-		sort_for_extremes(b, 'a');
+		sort_for_extremes(b, 'b');
 	}
 	push(b, a, 'b');
 }
