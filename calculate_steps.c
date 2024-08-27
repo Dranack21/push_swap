@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:16:01 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/26 18:20:28 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/26 19:50:49 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,29 +92,6 @@ int sort_for_middle_bigger(t_double_list **lst, t_double_list *node, char c)
     return (i);
 }
 
-t_double_list   *find_smaller_than_node(t_double_list **lst, t_double_list *node)
-{
-    int             i;
-    t_double_list   *head;
-    t_double_list   *best_node;
-
-    i = INT_MAX;
-    head = *lst;
-    while (head)
-    {
-        if (head->value < node->value)
-        {
-            if (node->value - head->value < i)
-            {
-                best_node = head;
-                i = node->value - head->value;
-            }
-        }
-        head = head->next;
-    }
-    return (best_node);
-}
-
 int	sort_for_extremes(t_double_list **lst, char c)
 {
 	int				steps;
@@ -141,7 +118,7 @@ int	sort_for_extremes(t_double_list **lst, char c)
 	if (size / 2 <= i)
 	{
 		while ((*lst)->value != biggest_node->value && steps++ > -1)
-			reverse_rotate(lst ,c);
+		    reverse_rotate(lst ,c);
 	}
 	return (steps);
 }

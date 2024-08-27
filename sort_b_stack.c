@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/26 17:51:00 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/26 20:09:30 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,7 @@ int		calculate_steps(t_double_list **b, t_double_list *node)
 	}
 	else if (size == 3)
 	{
-		if (simulated_b->value > node->value)
-		{
-			steps = sort_for_middle_smaller(&simulated_b, node, 'd');
-		}
-		else if (simulated_b->value < node->value)
-		{
-			steps = sort_for_middle_bigger(&simulated_b, node, 'd');
-		}
+	steps = sort_for_middle_bigger(&simulated_b, node, 'd');
 	}
 	ft_free_list(&simulated_b);
 	return (steps + 1);
@@ -119,14 +112,7 @@ void	find_best_push(t_double_list **a, t_double_list **b)
 	size = check_biggest_or_smallest(b, best_node);
 	if (size == 3)
 	{
-		if ((*b)->value > best_node->value)
-		{
-			sort_for_middle_smaller(b, best_node, 'b');
-		}
-		else if ((*b)->value < best_node->value)
-		{
-			sort_for_middle_bigger(b, best_node, 'b');
-		}
+		sort_for_middle_bigger(b, best_node, 'b');
 	}
 	else if (size == 1 || size == 2)
 	{

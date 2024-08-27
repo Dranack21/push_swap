@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:18:29 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/25 19:38:52 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/26 19:44:49 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,26 @@ int	sort_three_stack_reverse(t_double_list **head, char c)
 			return (rotate(head, c), 1);
 	}
 	return (swap(*head, c), reverse_rotate(head, c), 2);
+}
+t_double_list   *find_smaller_than_node(t_double_list **lst, t_double_list *node)
+{
+    int             i;
+    t_double_list   *head;
+    t_double_list   *best_node;
+
+    i = INT_MAX;
+    head = *lst;
+    while (head)
+    {
+        if (head->value < node->value)
+        {
+            if (node->value - head->value < i)
+            {
+                best_node = head;
+                i = node->value - head->value;
+            }
+        }
+        head = head->next;
+    }
+    return (best_node);
 }

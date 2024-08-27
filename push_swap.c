@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:21:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/26 18:20:51 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/27 16:25:31 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ int	main(int argc, char *argv[])
 	no = NULL;
 	push(&no, &head, 'b');
 	push(&no, &head, 'b');
+	// size = ft_listsize(head);
 	while (ft_listsize(head) > 0)
 		find_best_push(&head, &no);
 	sort_for_extremes(&no, 'b');
-	print_list(no);
 	while(ft_listsize(no) > 0)
 		push(&head, &no, 'a');
-	print_list(head);
 	ft_free_list(&head);
 	ft_free_list(&no);
 }
