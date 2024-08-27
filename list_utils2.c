@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:18:29 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/26 19:44:49 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/27 16:57:22 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,24 @@ t_double_list   *find_smaller_than_node(t_double_list **lst, t_double_list *node
         head = head->next;
     }
     return (best_node);
+}
+
+int		calculate_node_pos_in_a(t_double_list **a, t_double_list *node)
+{
+	int 			size;
+	int				i;
+	t_double_list	*head;
+
+	i = 0;
+	size = ft_listsize(*a);
+	head = *a;
+	while (head != node)
+	{
+		i++;
+		head = head->next;
+	}
+	if (size / 2 >= i)
+		return (i);
+	else 
+		return (size - i);
 }

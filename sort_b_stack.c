@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/26 20:09:30 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/27 16:58:54 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		calculate_steps(t_double_list **b, t_double_list *node)
 	return (steps + 1);
 }
 
-void	find_best_push(t_double_list **a, t_double_list **b)
+void	find_best_push(t_double_list **a, t_double_list **b, t_double_list *bi)
 {
 	int				steps;
 	int				best_steps;
@@ -91,14 +91,15 @@ void	find_best_push(t_double_list **a, t_double_list **b)
 	current = *a;
 	while (current)
 	{
-		steps = calculate_steps(b, current);
-		if (steps < best_steps)
+		steps = calculate_steps(b, current) + calculate_node_pos_in_a(a, current);
+		if (steps < best_steps && current != bi)
 		{
 			best_node = current;
 			best_steps = steps;
 		}
 		current = current->next;
 	}
+	// printf("best steps :%d\n", best_steps);
 	if (rotate_or_rev(a, best_node) == 1)
 	{
 		while (*a != best_node)
