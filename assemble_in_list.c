@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:24:20 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 16:08:35 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 16:55:01 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ t_double_list	*assemble_in_list(int argc, char *argv[])
 	if (argc < 2)
 		return (head);
 	if (argc == 2)
+	{
+		i = 0;
 		argv = ft_split(argv[1], ' ');
-	while (argv[i])
+	}
+	while (argv[i] != NULL)
 	{
 		if (!parsing(argv[i++]) || !check_numbers(argv))
 			return (head);
@@ -33,8 +36,7 @@ t_double_list	*assemble_in_list(int argc, char *argv[])
 		i = 0;
 	while (argv[i])
 	{
-		ft_add_in_list(&head, argv[i]);
-		i++;
+		ft_add_in_list(&head, argv[i++]);
 	}
 	return (head);
 }
@@ -88,7 +90,7 @@ int	parsing(char *pile)
 			else
 				return (0);
 		}
-		else
+		else if (!ft_isdigit(pile[i]))
 			return (0);
 	}
 	return (1);
