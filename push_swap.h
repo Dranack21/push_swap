@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 17:34:19 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 19:02:58 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void		ft_add_in_list(t_double_list **head, char *argv);
 void		print_list(t_double_list *head);
 void		ft_free_double_list(t_double_list **lst);
 void		*create_node(int value);
+void	ft_free_str_array(char ***array);
 
 #endif

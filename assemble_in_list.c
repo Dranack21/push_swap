@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:24:20 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 18:26:05 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 19:09:12 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 t_double_list	*assemble_in_list(int argc, char *argv[])
 {
 	int				i;
+	char			**av;
 	t_double_list	*head;
 
+	av = argv;
 	head = NULL;
 	i = 1;
 	if (argc < 2)
@@ -24,21 +26,44 @@ t_double_list	*assemble_in_list(int argc, char *argv[])
 	if (argc == 2)
 	{
 		i = 0;
-		argv = ft_split(argv[1], ' ');
+		av = ft_split(av[1], ' ');
 	}
-	while (argv[i] != NULL)
+	while (av[i] != NULL)
 	{
-		if (!parsing(argv[i++]) || !check_numbers(argv))
+		if (!parsing(av[i++]) || !check_numbers(av))
+		{
+			if (argc == 2)
+				ft_free_str_array(&av);
 			return (head);
+		}
 	}
 	i = 1;
 	if (argc == 2)
 		i = 0;
-	while (argv[i])
+	while (av[i])
 	{
-		ft_add_in_list(&head, argv[i++]);
+		ft_add_in_list(&head, av[i++]);
 	}
+	if (argc == 2)
+		ft_free_str_array(&av);
 	return (head);
+}
+
+void	ft_free_str_array(char ***array)
+{
+	size_t	i;
+
+	i = 0;
+	if (!array)
+		return ;
+	while ((*array)[i])
+	{
+		free((*array)[i]);
+		((*array)[i]) = NULL;
+		i++;
+	}
+	free(*array);
+	*array = NULL;
 }
 
 int	check_numbers(char **argv)

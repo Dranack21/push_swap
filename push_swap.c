@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:21:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 18:05:52 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 19:31:17 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	head = assemble_in_list(argc, argv);
 	if (head == NULL)
-		return (write(2, "Error\n", 7), 0);
+		return (write(2, "Error\n", 6), 0);
 	if (check_cases(&head, &no))
 		return (ft_free_list(&head), 0);
 	biggest_node = find_biggest_node(&head);
