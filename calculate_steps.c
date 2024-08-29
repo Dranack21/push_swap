@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:16:01 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/26 19:50:49 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 15:18:36 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_double_list	*find_biggest_node(t_double_list **lst)
 	t_double_list	*biggest_node;
 
 	head = *lst;
-	value = 0;
+	value = INT_MIN;
 	if (head == NULL)
 		return (NULL);
 	while (head)

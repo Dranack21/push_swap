@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Assemble_in_list.c                                 :+:      :+:    :+:   */
+/*   assemble_in_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:24:20 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/20 12:37:27 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 16:08:35 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,17 @@ int	check_numbers(char **argv)
 		k = i + 1;
 		while (argv[k])
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[k]))
+			if (ft_atol(argv[i]) == ft_atol(argv[k]))
 				return (0);
 			k++;
 		}
+		i++;
+	}
+	i = 0;
+	while (argv[i])
+	{
+		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
+			return (0);
 		i++;
 	}
 	return (1);

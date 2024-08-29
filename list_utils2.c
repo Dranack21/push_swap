@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:18:29 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/27 16:57:22 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 15:27:07 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_free_double_list(t_double_list **lst)
 	}
 	*lst = NULL;
 }
-int	sort_three_stack_reverse(t_double_list **head, char c)
+int	_stack_reverse(t_double_list **head, char c)
 {
 	t_double_list	*second;
 	t_double_list	*third;

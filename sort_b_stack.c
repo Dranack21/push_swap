@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/27 16:58:54 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 15:16:33 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		calculate_steps(t_double_list **b, t_double_list *node)
 	steps = 0;
 	simulated_b = NULL;
 	alloc_temp_list(*b, &simulated_b);
-	size = check_biggest_or_smallest(&simulated_b, node);
+	size = check_biggest_or_smallest(&simulated_b, node);	
 	if (size == 1 || size == 2)
 	{
 		steps = sort_for_extremes(&simulated_b, 'd');
