@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:16:01 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 15:18:36 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 18:17:44 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_double_list	*find_biggest_node(t_double_list **lst)
 {
-	int				value;
+	long			value;
 	t_double_list	*head;
 	t_double_list	*biggest_node;
 
 	head = *lst;
-	value = INT_MIN;
+	value = LONG_MIN;
 	if (head == NULL)
 		return (NULL);
 	while (head)
@@ -32,6 +32,28 @@ t_double_list	*find_biggest_node(t_double_list **lst)
 		head = head->next;
 	}
 	return (biggest_node);
+}
+
+t_double_list	*find_smallest_node(t_double_list **lst)
+{
+	long			value;
+	t_double_list	*head;
+	t_double_list	*smallest_node;
+
+	head = *lst;
+	value = LONG_MAX;
+	if (head == NULL)
+		return (NULL);
+	while (head)
+	{
+		if (head->value < value)
+		{
+			value = head->value;
+			smallest_node = head;
+		}
+		head = head->next;
+	}
+	return (smallest_node);
 }
 int sort_for_middle_smaller(t_double_list **lst, t_double_list *node, char c)
 {

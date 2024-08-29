@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:24:20 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 16:55:01 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/29 18:26:05 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	check_numbers(char **argv)
 	{
 		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
 			return (0);
-		i++;
+		i++;	
 	}
-	return (1);
+	return (1);	
 }
 int	parsing(char *pile)
 {
@@ -83,7 +83,7 @@ int	parsing(char *pile)
 			else
 				return (0);
 		}
-		else if (pile[i] == ' ')
+		else if (ft_is_space(pile[i]))
 		{
 			if (pile[i + 1] && (pile[i + 1] == '-' || pile[i + 1 == '+']))
 				i++;
