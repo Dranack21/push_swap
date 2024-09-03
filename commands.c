@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:57 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/27 16:13:48 by habouda          ###   ########.fr       */
+/*   Updated: 2024/09/02 01:47:11 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	push(t_double_list **l1, t_double_list **l2, char c)
 	t_double_list	*temp;
 
 	if (*l2 == NULL)
-		return;
+		return ;
 	temp = *l2;
 	*l2 = (*l2)->next;
-	if (*l2) 
+	if (*l2)
 		(*l2)->previous = NULL;
 	temp->next = *l1;
 	if (*l1)
@@ -33,79 +33,86 @@ void	push(t_double_list **l1, t_double_list **l2, char c)
 		ft_printf("pb\n");
 }
 
-
-void swap(t_double_list *head, char c)
+void	swap(t_double_list *head, char c)
 {
-    int temp;
-    t_double_list *next;
+	int				temp;
+	t_double_list	*next;
 
-    if (!head || !head->next)
-        return;
-
-    next = head->next;
-    temp = head->value;
-    head->value = next->value;
-    next->value = temp;
-
-    if (c == 'a')
-        ft_printf("sa\n");
-    else if (c == 'b')
-        ft_printf("sb\n");
-    else if (c == 'c')
-        ft_printf("ss\n");
+	if (!head || !head->next)
+		return ;
+	next = head->next;
+	temp = head->value;
+	head->value = next->value;
+	next->value = temp;
+	if (c == 'a')
+		ft_printf("sa\n");
+	else if (c == 'b')
+		ft_printf("sb\n");
+	else if (c == 'c')
+		ft_printf("ss\n");
 }
 
-void rotate(t_double_list **head, char c)
+void	rotate(t_double_list **head, char c)
 {
-    t_double_list *temp;
-    t_double_list *new_head;
+	t_double_list	*temp;
+	t_double_list	*new_head;
 
-    if (*head == NULL || !(*head)->next)
-        return;
-    temp = *head;
-    new_head = (*head)->next;
-
-    while (temp->next)
-    {
-        temp = temp->next;
-    }
-    temp->next = *head;
-    (*head)->previous = temp;
-    (*head)->next = NULL;
-    new_head->previous = NULL;
-    *head = new_head;
-    if (c == 'a')
-        ft_printf("ra\n");
-    else if (c == 'b')
-        ft_printf("rb\n");
-    else if (c == 'c')
-        ft_printf("rr\n");
+	if (*head == NULL || !(*head)->next)
+		return ;
+	temp = *head;
+	new_head = (*head)->next;
+	while (temp->next)
+	{
+		temp = temp->next;
+	}
+	temp->next = *head;
+	(*head)->previous = temp;
+	(*head)->next = NULL;
+	new_head->previous = NULL;
+	*head = new_head;
+	if (c == 'a')
+		ft_printf("ra\n");
+	else if (c == 'b')
+		ft_printf("rb\n");
+	else if (c == 'c')
+		ft_printf("rr\n");
 }
 
-void reverse_rotate(t_double_list **head, char c)
+void	reverse_rotate(t_double_list **head, char c)
 {
-    t_double_list *temp;
+	t_double_list	*temp;
 
-    if (*head == NULL || !(*head)->next)
-        return;
-    temp = *head;
-    while (temp->next)
-    {
-        temp = temp->next;
-    }
-    temp->previous->next = NULL;
-    temp->previous = NULL;
-    temp->next = *head;
-    (*head)->previous = temp;
-    *head = temp;
-
-    if (c == 'a')
-        ft_printf("rra\n");
-    else if (c == 'b')
-        ft_printf("rrb\n");
-    else if (c == 'c')
-        ft_printf("rrr\n");
+	if (*head == NULL || !(*head)->next)
+		return ;
+	temp = *head;
+	while (temp->next)
+	{
+		temp = temp->next;
+	}
+	temp->previous->next = NULL;
+	temp->previous = NULL;
+	temp->next = *head;
+	(*head)->previous = temp;
+	*head = temp;
+	if (c == 'a')
+		ft_printf("rra\n");
+	else if (c == 'b')
+		ft_printf("rrb\n");
+	else if (c == 'c')
+		ft_printf("rrr\n");
 }
 
+void	ft_free_list(t_double_list **lst)
+{
+	t_double_list	*ptr;
+	t_double_list	*temp;
 
-
+	ptr = *lst;
+	while (ptr != NULL)
+	{
+		temp = ptr->next;
+		free(ptr);
+		ptr = temp;
+	}
+	*lst = NULL;
+}

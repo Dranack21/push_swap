@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:24:20 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 19:09:12 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/31 02:07:07 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,19 @@ t_double_list	*assemble_in_list(int argc, char *argv[])
 			return (head);
 		}
 	}
+	head = assemble_in_list_util(head, av, argc);
+	return (head);
+}
+
+t_double_list	*assemble_in_list_util(t_double_list *head, char **av, int argc)
+{
+	int	i;
+
 	i = 1;
 	if (argc == 2)
 		i = 0;
 	while (av[i])
-	{
 		ft_add_in_list(&head, av[i++]);
-	}
 	if (argc == 2)
 		ft_free_str_array(&av);
 	return (head);
@@ -88,10 +94,11 @@ int	check_numbers(char **argv)
 	{
 		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
 			return (0);
-		i++;	
+		i++;
 	}
-	return (1);	
+	return (1);
 }
+
 int	parsing(char *pile)
 {
 	int	i;
@@ -119,19 +126,4 @@ int	parsing(char *pile)
 			return (0);
 	}
 	return (1);
-}
-
-void	ft_free_list(t_double_list **lst)
-{
-	t_double_list	*ptr;
-	t_double_list	*temp;
-
-	ptr = *lst;
-	while (ptr != NULL)
-	{
-		temp = ptr->next;
-		free (ptr);
-		ptr = temp;
-	}
-	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:21:02 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 21:54:23 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/31 02:15:13 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,25 @@ int	check_cases(t_double_list **a, t_double_list **b)
 			if (head->value < (head->next)->value)
 				head = head->next;
 			else
-				break;
+				break ;
 		}
 		if (head->next == NULL)
 			return (1);
 	}
 	if (ft_listsize(*a) == 3)
 	{
-		sort_three_stack(a);
-		return (1);
+		return (sort_three_stack(a), 1);
 	}
 	else if (ft_listsize(*a) == 5)
 	{
-		sort_five_stack(a, b);
-		return (1);
+		return (sort_five_stack(a, b), 1);
 	}
 	return (0);
 }
 
-void sort_five_stack(t_double_list **a, t_double_list **b)
+void	sort_five_stack(t_double_list **a, t_double_list **b)
 {
-	int				i;
+	int	i;
 
 	i = 2;
 	while (i != 0)
@@ -63,8 +61,8 @@ void sort_five_stack(t_double_list **a, t_double_list **b)
 		i--;
 	}
 	sort_three_stack(a);
-	push(a ,b, 'a');
-	push(a ,b, 'a');
+	push(a, b, 'a');
+	push(a, b, 'a');
 }
 
 int	main(int argc, char *argv[])
@@ -88,9 +86,8 @@ int	main(int argc, char *argv[])
 	while (ft_listsize(head) > 1)
 		find_best_push(&head, &no, biggest_node);
 	sort_for_extremes(&no, 'b');
-	while(ft_listsize(no) > 0)
+	while (ft_listsize(no) > 0)
 		push(&head, &no, 'a');
-	// print_list(head);
 	ft_free_list(&head);
 	ft_free_list(&no);
 }

@@ -6,16 +6,16 @@
 /*   By: habouda <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:30:40 by habouda           #+#    #+#             */
-/*   Updated: 2024/08/29 15:16:33 by habouda          ###   ########.fr       */
+/*   Updated: 2024/08/31 02:15:36 by habouda          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		rotate_or_rev(t_double_list **a, t_double_list *a_node)
+int	rotate_or_rev(t_double_list **a, t_double_list *a_node)
 {
-	int	i;
-	int	size;
+	int				i;
+	int				size;
 	t_double_list	*head;
 
 	if (*a == NULL)
@@ -33,7 +33,7 @@ int		rotate_or_rev(t_double_list **a, t_double_list *a_node)
 	return (1);
 }
 
-int		check_biggest_or_smallest(t_double_list **lst, t_double_list *node)
+int	check_biggest_or_smallest(t_double_list **lst, t_double_list *node)
 {
 	t_double_list	*head;
 	int				smallest;
@@ -57,7 +57,7 @@ int		check_biggest_or_smallest(t_double_list **lst, t_double_list *node)
 	return (3);
 }
 
-int		calculate_steps(t_double_list **b, t_double_list *node)
+int	calculate_steps(t_double_list **b, t_double_list *node)
 {
 	t_double_list	*simulated_b;
 	int				steps;
@@ -66,14 +66,14 @@ int		calculate_steps(t_double_list **b, t_double_list *node)
 	steps = 0;
 	simulated_b = NULL;
 	alloc_temp_list(*b, &simulated_b);
-	size = check_biggest_or_smallest(&simulated_b, node);	
+	size = check_biggest_or_smallest(&simulated_b, node);
 	if (size == 1 || size == 2)
 	{
 		steps = sort_for_extremes(&simulated_b, 'd');
 	}
 	else if (size == 3)
 	{
-	steps = sort_for_middle_bigger(&simulated_b, node, 'd');
+		steps = sort_for_middle_bigger(&simulated_b, node, 'd');
 	}
 	ft_free_list(&simulated_b);
 	return (steps + 1);
@@ -83,7 +83,6 @@ void	find_best_push(t_double_list **a, t_double_list **b, t_double_list *bi)
 {
 	int				steps;
 	int				best_steps;
-	int				size;
 	t_double_list	*current;
 	t_double_list	*best_node;
 
@@ -91,7 +90,8 @@ void	find_best_push(t_double_list **a, t_double_list **b, t_double_list *bi)
 	current = *a;
 	while (current)
 	{
-		steps = calculate_steps(b, current) + calculate_node_pos_in_a(a, current);
+		steps = calculate_steps(b, current) + calculate_node_pos_in_a(a,
+				current);
 		if (steps < best_steps && current != bi)
 		{
 			best_node = current;
@@ -99,21 +99,27 @@ void	find_best_push(t_double_list **a, t_double_list **b, t_double_list *bi)
 		}
 		current = current->next;
 	}
-	// printf("best steps :%d\n", best_steps);
-	if (rotate_or_rev(a, best_node) == 1)
+	push_best(a, b, best_node);
+}
+
+void	push_best(t_double_list **a, t_double_list **b, t_double_list *node)
+{
+	int	size;
+
+	if (rotate_or_rev(a, node) == 1)
 	{
-		while (*a != best_node)
+		while (*a != node)
 			reverse_rotate(a, 'a');
 	}
-	else if (rotate_or_rev(a, best_node) == 2)
+	else if (rotate_or_rev(a, node) == 2)
 	{
-		while (*a != best_node)
+		while (*a != node)
 			rotate(a, 'a');
 	}
-	size = check_biggest_or_smallest(b, best_node);
+	size = check_biggest_or_smallest(b, node);
 	if (size == 3)
 	{
-		sort_for_middle_bigger(b, best_node, 'b');
+		sort_for_middle_bigger(b, node, 'b');
 	}
 	else if (size == 1 || size == 2)
 	{
